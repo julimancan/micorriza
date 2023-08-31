@@ -126,12 +126,6 @@ export const homepageSchema = defineType({
         }),
       ],
     }),
-
-    // defineField({
-    //   name: "youtubePlaylistId",
-    //   title: "Youtube Playlist Id",
-    //   type: "string"
-    // }),
     
     defineField({
       name: "bio",
