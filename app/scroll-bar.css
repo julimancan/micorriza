@@ -1,0 +1,17 @@
+:root {
+  --scrollbar-color: black;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  /* background: #010606; */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color);
+  border-radius: 100vw;
+  border: 2px solid var(--scrollbar-color);
+}

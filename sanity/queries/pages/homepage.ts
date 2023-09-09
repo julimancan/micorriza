@@ -10,6 +10,10 @@ const homepageQuery = `*[_type == "homepage"] {
     socialLinks
   },
   bio,
+  "youtubePlaylist": youtubePlaylist {
+    titulo,
+    youtubePlaylistLink,
+  }
 }`;
 
 export const getHomepageContent = async () => {

@@ -2,7 +2,6 @@ import { defineType, defineField, defineArrayMember } from "sanity";
 import { HomeIcon } from "@sanity/icons";
 import { preview } from "sanity-plugin-icon-picker";
 
-
 export const homepageSchema = defineType({
   name: "homepage",
   title: "Homepage",
@@ -17,17 +16,18 @@ export const homepageSchema = defineType({
     defineField({
       name: "seo",
       title: "SEO",
+      description: "Search Engine Optimization (optimizacion de motores de busqueda) es lo que sale en google cuando buscas algo.",
       type: "object",
       group: "SEO",
       fields: [
         defineField({
           name: "title",
-          title: "Title",
+          title: "Título",
           type: "string",
         }),
         defineField({
           name: "description",
-          title: "Description",
+          title: "Descripción",
           type: "string",
         }),
       ],
@@ -35,24 +35,25 @@ export const homepageSchema = defineType({
 
     defineField({
       name: "hero",
-      title: "Hero",
+      title: "Heroe",
+      description: "El heroe es la primera seccion de la pagina, es lo primero que ve el usuario.",
       type: "object",
       group: "hero",
       fields: [
         defineField({
           name: "title",
-          title: "Title",
+          title: "Título",
           type: "string",
         }),
         defineField({
           name: "subtitle",
-          title: "Subtitle",
+          title: "Subtítulo",
           type: "string",
         }),
         defineField({
           name: "bgVideo",
-          title: "Background Video",
-          description: "Upload a WEBM video format.",
+          title: "Video de fondo",
+          description: "Subir un video en formato webm, y/o un video en formato mp4, y/o una imagen de fondo.",
           type: "file",
           options: {
             accept: "video/webm",
@@ -60,13 +61,14 @@ export const homepageSchema = defineType({
           fields: [
             defineField({
               name: "alt",
-              title: "Alt Text",
+              title: "Texto Alternativo",
+              description: "Texto para personas con discapacidad visual.",
               type: "string",
               validation: (Rule: any) => Rule.required(),
             }),
             defineField({
               name: "fallback",
-              title: "Fallback Video",
+              title: "MP4 Para cuando no tienes webm",
               description: "Upload a MP4 video format.",
               type: "file",
               options: {
@@ -75,17 +77,16 @@ export const homepageSchema = defineType({
             }),
             defineField({
               name: "fallbackImage",
-              title: "Fallback Image",
+              title: "Imagen de fondo para cuando el video no se puede reproducir",
               type: "image",
             }),
-
           ],
-
         }),
         defineField({
           type: "array",
           name: "socialLinks",
-          title: "Hero Links",
+          title: "Links Sociales",
+          description: "Links a tus redes sociales. Estos links solo aparecen en la sección de heroe.",
           of: [
             defineArrayMember({
               name: "link",
@@ -94,16 +95,16 @@ export const homepageSchema = defineType({
               fields: [
                 defineField({
                   name: "title",
-                  title: "Title",
+                  title: "Título",
                   type: "string",
                 }),
                 defineField({
                   name: "url",
-                  title: "URL",
+                  title: "Dirección URL",
                   type: "url",
                 }),
                 defineField({
-                  title: "Icon",
+                  title: "Icono",
                   name: "icon",
                   type: "iconPicker",
                 }),
@@ -117,7 +118,7 @@ export const homepageSchema = defineType({
                   return {
                     // @ts-ignore
                     media: preview(icon),
-                    title: icon.name
+                    title: icon.name,
                   };
                 },
               },
@@ -126,7 +127,7 @@ export const homepageSchema = defineType({
         }),
       ],
     }),
-    
+
     defineField({
       name: "bio",
       title: "Bio",
@@ -135,20 +136,35 @@ export const homepageSchema = defineType({
       fields: [
         defineField({
           name: "title",
-          title: "Title",
+          title: "Título",
           type: "string",
         }),
         defineField({
           name: "text",
-          title: "Text",
+          title: "Texto",
           type: "array",
-          of: [
-            {type: "block"}
-          ]
+          of: [{ type: "block" }],
         }),
-      ]
+      ],
     }),
-
+    defineField({
+      name: "youtubePlaylist",
+      title: "Playlist de Youtube",
+      type: "object",
+      fields: [
+        defineField({
+          name: "titulo",
+          title: "Título",
+          type: "string",
+        }),
+        defineField({
+          name: "youtubePlaylistLink",
+          title: "Link de la playlist de Youtube",
+          description: "copia y pega el link que sale cuando le das compartir al playlist de youtube aqui.",
+          type: "string",
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {
@@ -160,7 +176,5 @@ export const homepageSchema = defineType({
     return {
       title,
     };
-  }
-    
+  },
 });
-

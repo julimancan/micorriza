@@ -22,6 +22,7 @@ const EmailSubscription = ({
     "idle" | "success" | "submitting" | "error"
   >("idle");
 
+  
   const formSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormState("submitting");

@@ -10,18 +10,19 @@ export const siteSettingsSchema = defineType({
   fields: [
     defineField({
       name: "siteTitle",
-      title: "Site Title",
+      title: "Título del sitio",
       type: "string",
     }),
     defineField({
       name: "siteDescription",
-      title: "Site Description",
+      title: "Descripción del sitio",
       type: "string",
     }),
     defineField({
       type: "array",
       name: "socialLinks",
-      title: "Social Links",
+      title: "Links Sociales",
+      description: "aparecen en el menu y en el pie de pagina.",
       of: [
         defineArrayMember({
           name: "link",
@@ -30,16 +31,16 @@ export const siteSettingsSchema = defineType({
           fields: [
             defineField({
               name: "title",
-              title: "Title",
+              title: "Título",
               type: "string",
             }),
             defineField({
               name: "url",
-              title: "URL",
+              title: "Direccion URL",
               type: "url",
             }),
             defineField({
-              title: "Icon",
+              title: "Icono",
               name: "icon",
               type: "iconPicker",
             }),
@@ -62,17 +63,17 @@ export const siteSettingsSchema = defineType({
     }),
     defineField({
       name: "subscribe",
-      title: "Subscribe",
+      title: "Seccion de suscripción",
       type: "object",
       fields: [
         defineField({
           name: "title",
-          title: "Title",
+          title: "Título de la sección de suscripción",
           type: "string",
         }),
         defineField({
           name: "subscribedMessage",
-          title: "Subscribed Message",
+          title: "Mensaje de suscripción exitosa",
           type: "string",
         })
       ]

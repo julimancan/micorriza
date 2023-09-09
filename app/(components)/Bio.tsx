@@ -8,7 +8,7 @@ const Bio = ({bio, color= "text-black"}: {bio: BioType; color?: string}) => {
       <h2 className={`text-2xl font-bold ${color} font-subtitle`}>
         {bio.title}
       </h2>
-      <div className="font-normal">
+      <div className="font-normal text-xl">
         <PortableText value={bio.text} />
       </div>
     </section>
